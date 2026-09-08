@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
-project(BeHappyBotApi VERSION 9.6 LANGUAGES CXX)
+project(BeHappyBotApi VERSION 10.3 LANGUAGES CXX)
 
 add_subdirectory(bhlib EXCLUDE_FROM_ALL)
 
