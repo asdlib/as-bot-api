@@ -6,8 +6,8 @@
 //
 #pragma once
 
-#include "behappy-bot-api/ClientManager.h"
-#include "behappy-bot-api/Query.h"
+#include "as-bot-api/ClientManager.h"
+#include "as-bot-api/Query.h"
 
 #include "td/net/HttpInboundConnection.h"
 #include "td/net/HttpQuery.h"

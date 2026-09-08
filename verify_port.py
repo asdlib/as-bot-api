@@ -10,8 +10,8 @@ u"""Гейт форка: наши исходники обязаны быть а�
 
 08.09.2026 сравнение было сделано, и выяснилось, что своих правок в исходниках
 НЕТ ВООБЩЕ. Все 19 файлов побайтово совпадают с `tdlib/telegram-bot-api`, если
-отменить сплошную замену `telegram-bot-api/` -> `behappy-bot-api/`. Форк — это
-переименование каталога, подмена сабмодуля `td` -> `bhlib` и имена в CMake.
+отменить сплошную замену `telegram-bot-api/` -> `as-bot-api/`. Форк — это
+переименование каталога, подмена сабмодуля `td` -> `adlib` и имена в CMake.
 
 Отсюда правило, которое этот скрипт и держит: **переход на новую версию Bot API
 = копирование апстримных исходников с той же заменой, и ничего больше.** Если
@@ -30,7 +30,7 @@ u"""Гейт форка: наши исходники обязаны быть а�
 🚨 Версию апстрима нельзя выбирать на глаз. Апстрим пинит `td` сабмодулем, и
 пара «версия bot-api <-> версия td» жёсткая: сборка 1672 упала 92 ошибками
 компиляции ровно потому, что исходники 9.6 собирали против td 1.8.67. Ревизия
-ниже выбрана так, чтобы её сабмодуль `td` совпадал с базой нашей ветки `bhlib`.
+ниже выбрана так, чтобы её сабмодуль `td` совпадал с базой нашей ветки `adlib`.
 """
 import io
 import os
@@ -40,19 +40,19 @@ import sys
 NL = chr(10)
 
 #: Ревизия апстрима, с которой снят порт. Её сабмодуль td = bc9c263e2
-#: («Update version to 1.8.67»), а наша ветка bhlib/layer229 стоит на потомке
+#: («Update version to 1.8.67»), а наша ветка adlib/layer229 стоит на потомке
 #: этого коммита — значит библиотека не старее той, под которую писан код.
 UPSTREAM_REF = '2efabc722'          # «Update version to 10.3», 24.08.2026
 UPSTREAM_TD = 'bc9c263e2'
 
 #: Единственное преобразование, которым наш форк отличается от апстрима.
-RENAMES_SOURCES = [('behappy-bot-api/', 'telegram-bot-api/')]
+RENAMES_SOURCES = [('as-bot-api/', 'telegram-bot-api/')]
 RENAMES_CMAKE = [
-    ('BeHappyBotApi', 'TelegramBotApi'),
-    ('BEHAPPY_BOT_API', 'TELEGRAM_BOT_API'),
-    ('behappy-bot-api', 'telegram-bot-api'),
-    ('add_subdirectory(bhlib', 'add_subdirectory(td'),
-    ('SOURCE_DIR}/bhlib/CMake', 'SOURCE_DIR}/td/CMake'),
+    ('AsBotApi', 'TelegramBotApi'),
+    ('AS_BOT_API', 'TELEGRAM_BOT_API'),
+    ('as-bot-api', 'telegram-bot-api'),
+    ('add_subdirectory(adlib', 'add_subdirectory(td'),
+    ('SOURCE_DIR}/adlib/CMake', 'SOURCE_DIR}/td/CMake'),
 ]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -89,7 +89,7 @@ def main():
 
     problems = []
 
-    ours_dir = os.path.join(HERE, 'behappy-bot-api')
+    ours_dir = os.path.join(HERE, 'as-bot-api')
     have = sorted(f for f in os.listdir(ours_dir) if f.endswith(('.cpp', '.h')))
     if have != sorted(names):
         problems.append('состав файлов разошёлся: у нас %d, у апстрима %d'

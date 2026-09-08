@@ -6,7 +6,7 @@
 //
 #pragma once
 
-#include "behappy-bot-api/Query.h"
+#include "as-bot-api/Query.h"
 
 #include "td/db/TQueue.h"
 

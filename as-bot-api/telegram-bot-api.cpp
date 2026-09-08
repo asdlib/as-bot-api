@@ -4,13 +4,13 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
-#include "behappy-bot-api/ClientManager.h"
-#include "behappy-bot-api/ClientParameters.h"
-#include "behappy-bot-api/HttpConnection.h"
-#include "behappy-bot-api/HttpServer.h"
-#include "behappy-bot-api/HttpStatConnection.h"
-#include "behappy-bot-api/Stats.h"
-#include "behappy-bot-api/Watchdog.h"
+#include "as-bot-api/ClientManager.h"
+#include "as-bot-api/ClientParameters.h"
+#include "as-bot-api/HttpConnection.h"
+#include "as-bot-api/HttpServer.h"
+#include "as-bot-api/HttpStatConnection.h"
+#include "as-bot-api/Stats.h"
+#include "as-bot-api/Watchdog.h"
 
 #include "td/db/binlog/Binlog.h"
 

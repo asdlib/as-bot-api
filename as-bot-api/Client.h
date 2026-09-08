@@ -6,9 +6,9 @@
 //
 #pragma once
 
-#include "behappy-bot-api/Query.h"
-#include "behappy-bot-api/Stats.h"
-#include "behappy-bot-api/WebhookActor.h"
+#include "as-bot-api/Query.h"
+#include "as-bot-api/Stats.h"
+#include "as-bot-api/WebhookActor.h"
 
 #include "td/telegram/ClientActor.h"
 #include "td/telegram/td_api.h"

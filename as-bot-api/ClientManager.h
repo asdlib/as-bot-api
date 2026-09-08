@@ -6,10 +6,10 @@
 //
 #pragma once
 
-#include "behappy-bot-api/Client.h"
-#include "behappy-bot-api/Query.h"
-#include "behappy-bot-api/Stats.h"
-#include "behappy-bot-api/Watchdog.h"
+#include "as-bot-api/Client.h"
+#include "as-bot-api/Query.h"
+#include "as-bot-api/Stats.h"
+#include "as-bot-api/Watchdog.h"
 
 #include "td/actor/actor.h"
 
