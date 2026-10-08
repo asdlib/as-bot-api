@@ -1,15 +1,15 @@
 //
-// Copyright Aliaksei Levin (levlam@telegram.org), Arseny Smirnov (arseny30@gmail.com) 2014-2025
+// Copyright Aliaksei Levin (levlam@telegram.org), Arseny Smirnov (arseny30@gmail.com) 2014-2026
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
 #pragma once
 
-#include "behappy-bot-api/Client.h"
-#include "behappy-bot-api/Query.h"
-#include "behappy-bot-api/Stats.h"
-#include "behappy-bot-api/Watchdog.h"
+#include "as-bot-api/Client.h"
+#include "as-bot-api/Query.h"
+#include "as-bot-api/Stats.h"
+#include "as-bot-api/Watchdog.h"
 
 #include "td/actor/actor.h"
 

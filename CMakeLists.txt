@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
-project(BeHappyBotApi VERSION 9.6 LANGUAGES CXX)
+project(AsBotApi VERSION 10.3 LANGUAGES CXX)
 
-add_subdirectory(bhlib EXCLUDE_FROM_ALL)
+add_subdirectory(adlib EXCLUDE_FROM_ALL)
 
 if (NOT DEFINED CMAKE_MODULE_PATH)
   set(CMAKE_MODULE_PATH "")
 endif()
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/bhlib/CMake" "${CMAKE_MODULE_PATH}")
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/adlib/CMake" "${CMAKE_MODULE_PATH}")
 
 if (NOT DEFINED CMAKE_INSTALL_BINDIR)
   set(CMAKE_INSTALL_BINDIR "bin")
@@ -21,7 +21,7 @@ endif()
 include(PreventInSourceBuild)
 prevent_in_source_build()
 
-if (BEHAPPY_BOT_API_ENABLE_LTO)
+if (AS_BOT_API_ENABLE_LTO)
   include(CheckIPOSupported)
   check_ipo_supported(RESULT IPO_SUPPORTED LANGUAGES CXX)
   if (IPO_SUPPORTED)
@@ -59,35 +59,35 @@ if (CLANG OR GCC)
   endif()
 endif()
 
-set(BEHAPPY_BOT_API_SOURCE
-  behappy-bot-api/telegram-bot-api.cpp
+set(AS_BOT_API_SOURCE
+  as-bot-api/telegram-bot-api.cpp
 
-  behappy-bot-api/Client.cpp
-  behappy-bot-api/ClientManager.cpp
-  behappy-bot-api/HttpConnection.cpp
-  behappy-bot-api/HttpStatConnection.cpp
-  behappy-bot-api/Query.cpp
-  behappy-bot-api/Stats.cpp
-  behappy-bot-api/Watchdog.cpp
-  behappy-bot-api/WebhookActor.cpp
+  as-bot-api/Client.cpp
+  as-bot-api/ClientManager.cpp
+  as-bot-api/HttpConnection.cpp
+  as-bot-api/HttpStatConnection.cpp
+  as-bot-api/Query.cpp
+  as-bot-api/Stats.cpp
+  as-bot-api/Watchdog.cpp
+  as-bot-api/WebhookActor.cpp
 
-  behappy-bot-api/Client.h
-  behappy-bot-api/ClientManager.h
-  behappy-bot-api/ClientParameters.h
-  behappy-bot-api/HttpConnection.h
-  behappy-bot-api/HttpServer.h
-  behappy-bot-api/HttpStatConnection.h
-  behappy-bot-api/Query.h
-  behappy-bot-api/Stats.h
-  behappy-bot-api/Watchdog.h
-  behappy-bot-api/WebhookActor.h
+  as-bot-api/Client.h
+  as-bot-api/ClientManager.h
+  as-bot-api/ClientParameters.h
+  as-bot-api/HttpConnection.h
+  as-bot-api/HttpServer.h
+  as-bot-api/HttpStatConnection.h
+  as-bot-api/Query.h
+  as-bot-api/Stats.h
+  as-bot-api/Watchdog.h
+  as-bot-api/WebhookActor.h
 )
 
-add_executable(behappy-bot-api ${BEHAPPY_BOT_API_SOURCE})
-target_include_directories(behappy-bot-api PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
-target_link_libraries(behappy-bot-api PRIVATE memprof tdactor tdcore tddb tdnet tdutils)
+add_executable(as-bot-api ${AS_BOT_API_SOURCE})
+target_include_directories(as-bot-api PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
+target_link_libraries(as-bot-api PRIVATE memprof tdactor tdcore tddb tdnet tdutils)
 
-install(TARGETS behappy-bot-api RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
+install(TARGETS as-bot-api RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 if (MSVC AND VCPKG_TOOLCHAIN)
   install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>/" DESTINATION "${CMAKE_INSTALL_BINDIR}" FILES_MATCHING PATTERN "*.dll" PATTERN "*.pdb")
 endif()
