@@ -39,11 +39,10 @@ import sys
 
 NL = chr(10)
 
-#: Ревизия апстрима, с которой снят порт. Её сабмодуль td = bc9c263e2
-#: («Update version to 1.8.67»), а наша ветка adlib/layer229 стоит на потомке
-#: этого коммита — значит библиотека не старее той, под которую писан код.
-UPSTREAM_REF = '2efabc722'          # «Update version to 10.3», 24.08.2026
-UPSTREAM_TD = 'bc9c263e2'
+#: Согласованная пара Bot API 10.4 и TDLib 1.8.70 (layer 233).
+#: В adlib перенесён этот TD snapshot с сохранением транспорта и ключа Ansible.
+UPSTREAM_REF = '7232881b39dfcd048a0d569f1983c5184249ee05'          # Bot API 10.4, 09.11.2026
+UPSTREAM_TD = 'c8828d50f5eac2fc7089ce1089d7ce9095c61b5e'
 
 #: Единственное преобразование, которым наш форк отличается от апстрима.
 RENAMES_SOURCES = [('as-bot-api/', 'telegram-bot-api/')]

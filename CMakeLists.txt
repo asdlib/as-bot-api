@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
-project(AsBotApi VERSION 10.3 LANGUAGES CXX)
+project(AsBotApi VERSION 10.4 LANGUAGES CXX)
 
 add_subdirectory(adlib EXCLUDE_FROM_ALL)
 
